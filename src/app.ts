@@ -58,7 +58,7 @@ let redisConnection: IORedis.Redis;
 const connectToRedis = (): void => {
   redisConnection = new redis();
   redisConnection.on("connect", () => {
-    console.log("Redis client connected successful");
+    console.log("Redis Connection established");
   });
 };
 
