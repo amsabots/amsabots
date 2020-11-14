@@ -151,7 +151,8 @@ router.get(`${url_prefix}get_sort_parameters`, async (req, res) => {
         return (messageContent += `${counter++}: ${arr}
       `);
       });
-      messageContent = "All items with Size/Volume\n".concat(messageContent);
+      messageContent = `All items with Size/Volume
+      ${messageContent}`;
       message = {
         statusCode: 200,
         message: messageContent,
@@ -186,7 +187,7 @@ router.get(
     );
     if (filterColumn == "price") {
       SQL.text =
-        "SELECT * FROM items WHERE subcategory_id = $1 AND price > $2 ORDER BY price ASC";
+        "SELECT * FROM items WHERE subcategory_id = $1 AND price < $2 ORDER BY price ASC";
       SQL.values = [subId, sortRange];
       console.log(subId, sortRange);
     } else if (filterColumn == "size") {
